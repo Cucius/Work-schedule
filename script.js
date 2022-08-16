@@ -1,5 +1,6 @@
 var currentHour = moment();
 
+//Live Date and Time
 function updateTime() {
   var currentDate = moment().format("[Today's Date is:] dddd, MMMM Do YYYY, h:mm:ss a");
   document.getElementById("currentDay").innerText = currentDate;
