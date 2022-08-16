@@ -1,0 +1,15 @@
+Goal: Daily planner that saves events during the day to help manage time
+
+    -On open the planner shows the currrent day at the top of Calendar
+
+    -There needs to be time blocks from 8-5
+        -the blocks need to be color coded
+            -TODO:Write an if statement checking time if less than/equal to and greater than
+                -Green current time block
+                -Gold is future time blocks
+                -Grey to indicate past time blocks
+        -the blocks need to be able to be selected and edited
+            -TODO: Write code for a target id or query selector (maybe a form with a submit button)
+    -There needs to be a save button for the time blocks
+        -TODO:Create a button that saves to local storage
+       
