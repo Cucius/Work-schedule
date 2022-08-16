@@ -10,6 +10,7 @@ Goal: Daily planner that saves events during the day to help manage time
                 -Grey to indicate past time blocks
         -the blocks need to be able to be selected and edited
             -TODO: Write code for a target id or query selector (maybe a form with a submit button)
+                -textarea
     -There needs to be a save button for the time blocks
         -TODO:Create a button that saves to local storage
        
