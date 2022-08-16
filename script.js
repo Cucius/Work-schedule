@@ -1,35 +1,49 @@
-var currentDate = moment().format("[Today's Date is:] dddd, MMMM Do YYYY, h:mm:ss a");
-console.log(currentDate);
-var currentHour = moment().format("hA");
-console.log("The current hour is:", currentHour);
+var currentHour = moment();
 
-var hour = moment({ hour: 24 }).format("hA");
-
-document.getElementById("save").addEventListener("click", function () {
-  var input = document.getElementById("events").value;
-  localStorage.setItem("input", input);
-  console.log(input);
-});
-
-function checkTimeBlock(time) {
-  if (time == currentHour) {
-    $("#events").addClass("present");
-  } else if (time > currentHour) {
-    $("#events").addClass("future");
-  } else if (time < currentHour) {
-    $("#events").addClass("past");
-  }
-
-  console.log(time);
-  console.log(currentHour);
+function updateTime() {
+  var currentDate = moment().format("[Today's Date is:] dddd, MMMM Do YYYY, h:mm:ss a");
+  document.getElementById("currentDay").innerText = currentDate;
 }
 
-checkTimeBlock(hour);
-// var pastTimeBlock = moment()
-// console.log(pastTimeBlock);
+setInterval(updateTime, 1000);
 
-// var futureTimeBlock = moment()
-// console.log(futureTimeBlock);
+//Saves input from textbox
+var saveButtons = document.getElementsByClassName("saveBtn");
 
-// var currentTimeBlock = moment()
-// console.log(currentTimeBlock);
+for (var i = 0; i < saveButtons.length; i++) {
+  saveButtons[i].addEventListener("click", function (event) {
+    var input = event.target.previousElementSibling.value;
+    localStorage.setItem(event.target.id, input);
+  });
+}
+
+//TODO:Create a function to call and load the localstorage into the textareas
+function loadFromStorage() {
+  for (var i = 0; i < saveButtons.length; i++) {
+    var toStore = localStorage.getItem("save" + i);
+    document.getElementById("save" + i).previousElementSibling.value = toStore;
+  }
+}
+
+//function to check the timeblock and change acording to the time
+function checkTimeBlock() {
+  for (var i = 0; i < saveButtons.length; i++) {
+    var timeCheck = document.getElementById("save" + i).previousElementSibling.previousElementSibling.innerText;
+    var time = moment(timeCheck, "hh:mm A");
+
+    // convert times to moment format and comapre current hour of moment format
+    if (time.isSame(currentHour, "hour")) {
+      // green
+      document.getElementById("save" + i).previousElementSibling.setAttribute("class", "present description col-10");
+    } else if (time.isAfter(currentHour, "hour")) {
+      // gold
+      document.getElementById("save" + i).previousElementSibling.setAttribute("class", "future description col-10");
+    } else if (time.isBefore(currentHour, "hour")) {
+      // grey
+      document.getElementById("save" + i).previousElementSibling.setAttribute("class", "past description col-10");
+    }
+  }
+}
+
+checkTimeBlock();
+loadFromStorage();
