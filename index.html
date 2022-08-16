@@ -18,21 +18,28 @@
       <p id="currentDay" class="lead"></p>
     </header>
     <div class="container">
-      <section class="row ">
+      <section class="row col-12">
+        <div class="hour col-1">8:00</div>
+        <textarea class="description col-10 past" placeholder="What is essential?"></textarea>
 
-        <div class="hour">8:00</div>
-        <textarea></textarea>
-        
-
-        <div class="saveBtn">Save</div>
-        </div>
-
+        <input type="button" class="saveBtn col-1" value="Save"></input>
       </section>
-      <section class="row ">
 
-        
-        <div class="hour"> 9:00</div>
-      </section>    
+
+      <section class="row col-12">
+        <div class="hour col-1">9:00</div>
+        <textarea class="description col-10 present" placeholder="What is essential?"></textarea>
+
+        <input type="button" class="saveBtn col-1" value="Save"></input>
+      </section>
+      
+      
+      <section class="row col-12">
+        <div class="hour col-1">10:00</div>
+        <textarea class="description col-10 future" placeholder="What is essential?"></textarea>
+
+        <input type="button" class="saveBtn col-1" value="Save"></input>
+      </section>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
