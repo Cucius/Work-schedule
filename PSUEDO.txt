@@ -1,6 +1,6 @@
 Goal: Daily planner that saves events during the day to help manage time
 
-    -On open the planner shows the currrent day at the top of Calendar
+    -On open the planner shows the current day at the top of Calendar
 
     -There needs to be time blocks from 8-5
         -the blocks need to be color coded
